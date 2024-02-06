@@ -2,7 +2,9 @@ import express from "express";
 import dotenv from "dotenv"
 dotenv.config()
 import mongoose from "mongoose"
-import grades from "./routes/grades.mjs";
+import reviews from "./routes/reviews.mjs";
+import questions from "./routes/questions.mjs";
+import users from "./routes/users.mjs";
 
 const ATLAS_URI =process.env.ATLAS_URI
 const db = mongoose.connection;
@@ -15,14 +17,24 @@ db.on("close", () => console.log("mongo disconnected"))
 const PORT = 5050;
 const app = express();
 
-
 app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Welcome to the API.");
 });
 
-app.use("/grades", grades);
+app.use("/users", users);
+app.use("/questions", questions);
+app.use("/reviews", reviews);
+
+// Get the current validation rules.
+app.get("/", async (req, res) => {
+  let coll = await db.listCollections({ name: "learners" }).toArray();
+  const result = coll[0].options.validator;
+
+  res.send(result).status(204);
+});
+
 
 // Global error handling
 app.use((err, _req, res, next) => {
@@ -32,4 +44,5 @@ app.use((err, _req, res, next) => {
 // Start the Express server
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
+  
 });
