@@ -5,6 +5,7 @@ import mongoose from "mongoose"
 import reviews from "./routes/reviews.mjs";
 import questions from "./routes/questions.mjs";
 import users from "./routes/users.mjs";
+import morgan from "morgan";
 
 const ATLAS_URI =process.env.ATLAS_URI
 const db = mongoose.connection;
@@ -18,22 +19,23 @@ const PORT = 5050;
 const app = express();
 
 app.use(express.json());
+app.use(morgan("dev"));
 
 app.get("/", (req, res) => {
   res.send("Welcome to the API.");
 });
 
-app.use("/users", users);
-app.use("/questions", questions);
-app.use("/reviews", reviews);
+app.use( users);
+app.use( questions);
+app.use( reviews);
 
-// Get the current validation rules.
-app.get("/", async (req, res) => {
-  let coll = await db.listCollections({ name: "learners" }).toArray();
-  const result = coll[0].options.validator;
+// // Get the current validation rules.
+// app.get("/", async (req, res) => {
+//   let coll = await db.listCollections({ name: "learners" }).toArray();
+//   const result = coll[0].options.validator;
 
-  res.send(result).status(204);
-});
+//   res.send(result).status(204);
+// });
 
 
 // Global error handling

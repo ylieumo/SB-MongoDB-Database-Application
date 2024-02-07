@@ -1,0 +1,9 @@
+DELETE http://localhost:5050/questions/65c2ca73106f9e946c6003eb HTTP/1.1
+# content-type: application/json
+
+# {
+#     "question": "What is the capital of Virginia?",
+#     "answerChoises": "'Boston', 'Austin', 'Annapolis', 'Chicago', 'none",
+#     "answer": "none",
+#      "Author" : "Holi "
+# }
