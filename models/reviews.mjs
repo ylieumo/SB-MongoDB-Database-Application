@@ -3,10 +3,9 @@ const Schema = mongoose.Schema;
 const model = mongoose.model;
 const reviewsSchema = new Schema(
     {
-        body: String,
-        Author: String,
-        text: String,
-        date: String,
+       userId: Number,
+       title: String,
+       text: String,
        review_id:Number
     }
 )
