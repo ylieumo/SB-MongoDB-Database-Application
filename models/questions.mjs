@@ -13,7 +13,7 @@ const questionsSchema = new Schema(
             type: String,
             required: true,
           },
-          answerChoises: {
+          answer: {
             type: String,
             required: true,
           },
@@ -26,6 +26,12 @@ const questionsSchema = new Schema(
         { timestamps: true }
         )
 const Question = model('Question', questionsSchema);
+
+//indexes schemas.
+questionsSchema.index({  question: 1 });
+questionsSchema.index({ answerChoises: 1 });
+questionsSchema.index({ answer: 1 });
+questionsSchema.index({ Author: 1 });
 
 
 export default Question;
