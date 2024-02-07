@@ -30,14 +30,6 @@ app.use( users);
 app.use( questions);
 app.use( reviews);
 
-// // Get the current validation rules.
-// app.get("/", async (req, res) => {
-//   let coll = await db.listCollections({ name: "learners" }).toArray();
-//   const result = coll[0].options.validator;
-
-//   res.send(result).status(204);
-// });
-
 
 // Global error handling
 app.use((err, _req, res, next) => {
