@@ -1,5 +1,5 @@
-POST http://localhost:5050/reviews HTTP/1.1
-content-type: application/json
+GET   http://localhost:5050/users/65c39fc01688763abebfdf6c HTTP/1.1
+# content-type: application/json
 
 # {
 #     "question": "What is the capital of Virginia?",
@@ -8,9 +8,20 @@ content-type: application/json
 #      "Author" : "Holi "
 # }
 
-    {
-       "userId":3,
-       "title": "quasi id et eos tenetur aut quo autem",
-       "text":  "odit magnam ut saepe sed non qui\ntempora atque nihil\naccusamus illum doloribus",
-       "review_id": 4
-    }
+    # {
+    #    "userId":31,
+    #    "title": "quasi id et eos tenetur aut quo autem",
+    #    "text":  "odit magnam ut saepe sed non qui\ntempora atque nihil\naccusamus illum doloribus",
+    #    "review_id": 41
+    # }
+
+
+
+    # {
+    #   "userId": 10,
+    # "name": "Frank",
+    # "username": "dfrank",
+    # "email": "dfrank@example.com"
+    # }
+    
+

@@ -7,7 +7,8 @@ const reviewsSchema = new Schema(
        title: String,
        text: String,
        review_id:Number
-    }
+    },
+    { timestamps: true }
 )
 const Review = model('Reviews', reviewsSchema);
 

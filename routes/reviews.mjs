@@ -23,7 +23,7 @@ router.post("/reviews", async (req, res) => {
      
       const reviews = await Reviews.find()
   
-      res.send("reviews");
+      res.send(reviews);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: "reviews document not available" });
